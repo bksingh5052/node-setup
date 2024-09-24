@@ -1,5 +1,6 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default [
   {
@@ -11,7 +12,7 @@ export default [
       ecmaVersion: 2021, // Optional: Ensure you're using modern ECMAScript features
     }
   },
-  pluginJs.configs.recommended,
+  pluginJs.configs.recommended , eslintConfigPrettier,
   {
     rules: {
       'no-console': 'error',

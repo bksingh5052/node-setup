@@ -1,33 +1,38 @@
 {
-  "name": "js-setup",
-  "version": "1.0.0",
-  "main": "src/server.js",
-  "scripts": {
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "dev": "nodemon src/server.js",
-    "start": "node server.js",
-    "prepare": "husky"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "lint-staged": {
-    "*.js": [
-      "npm run lint:fix"
-    ]
-  },
-  "description": "",
-  "devDependencies": {
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
-    "@eslint/js": "^9.11.1",
-    "eslint": "^9.11.1",
-    "globals": "^15.9.0",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10"
-  },
-  "dependencies": {
-    "nodemon": "^3.1.7"
-  }
+    "name": "js-setup",
+    "version": "1.0.0",
+    "main": "src/server.js",
+    "scripts": {
+        "lint": "eslint",
+        "lint:fix": "eslint --fix",
+        "formate:check": "prettier . --check",
+        "formate:fix": "prettier . --write",
+        "dev": "nodemon src/server.js",
+        "start": "node server.js",
+        "prepare": "husky"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "lint-staged": {
+        "*.js": [
+            "npm run lint:fix",
+            "npm run formate:fix"
+        ]
+    },
+    "description": "",
+    "devDependencies": {
+        "@commitlint/cli": "^19.5.0",
+        "@commitlint/config-conventional": "^19.5.0",
+        "@eslint/js": "^9.11.1",
+        "eslint": "^9.11.1",
+        "eslint-config-prettier": "^9.1.0",
+        "globals": "^15.9.0",
+        "husky": "^9.1.6",
+        "lint-staged": "^15.2.10",
+        "prettier": "3.3.3"
+    },
+    "dependencies": {
+        "nodemon": "^3.1.7"
+    }
 }
