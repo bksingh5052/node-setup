@@ -1,10 +1,10 @@
 {
   "name": "js-setup",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "node test.js",
-    "start": "node index.js",
+    "dev": "nodemon src/server.js",
+    "start": "node server.js",
     "prepare": "husky"
   },
   "keywords": [],
@@ -14,5 +14,8 @@
   "devDependencies": {
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.7"
   }
 }
