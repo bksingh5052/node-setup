@@ -1,14 +1,15 @@
 {
     "name": "js-setup",
     "version": "1.0.0",
+    "type": "module",
     "main": "src/server.js",
     "scripts": {
         "lint": "eslint",
         "lint:fix": "eslint --fix",
         "formate:check": "prettier . --check",
         "formate:fix": "prettier . --write",
-        "dev": "nodemon src/server.js",
-        "start": "node server.js",
+        "dev": "cross-env NODE_ENV=development nodemon src/server.js",
+        "start": "cross-env NODE_ENV=production node src/server.js",
         "prepare": "husky"
     },
     "keywords": [],
@@ -30,9 +31,13 @@
         "globals": "^15.9.0",
         "husky": "^9.1.6",
         "lint-staged": "^15.2.10",
+        "nodemon": "^3.1.7",
         "prettier": "3.3.3"
     },
     "dependencies": {
-        "nodemon": "^3.1.7"
+        "cross-env": "^7.0.3",
+        "dotenv-flow": "^4.1.0",
+        "express": "^4.21.0",
+        "path": "^0.12.7"
     }
 }

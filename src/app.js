@@ -1,10 +1,32 @@
-let flage = true
+import express from 'express'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+import path from 'path'
 
-let obj = {
-     a: 'a',
-     b: 'b'
-}
+import router from './router/apiRouter.js'
+import globalErrorHandler from './middleware/globalErrorHandler.js'
+import responseMessage from './constant/responseMessage.js'
+import httpError from './util/httpError.js'
 
-if (flage) {
-     obj.a = 'hello'
-}
+const app = express()
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+// middleware
+app.use(express.json())
+app.use(express.static(path.join(__dirname, '../', 'public')))
+
+app.use('/api/v1', router)
+// 404 Handler
+app.use((req, res, next) => {
+     try {
+          throw new Error(responseMessage.NOT_FOUND('route'))
+     } catch (error) {
+          httpError(next, error, req, 404)
+     }
+})
+
+// Global error handler
+app.use(globalErrorHandler)
+
+export default app
