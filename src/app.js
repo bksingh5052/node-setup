@@ -7,18 +7,21 @@ import router from './router/apiRouter.js'
 import globalErrorHandler from './middleware/globalErrorHandler.js'
 import responseMessage from './constant/responseMessage.js'
 import httpError from './util/httpError.js'
+import helmet from 'helmet'
 
 const app = express()
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 // middleware
+app.use(helmet())
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '../', 'public')))
 
 app.use('/api/v1', router)
+
 // 404 Handler
-app.use((req, res, next) => {
+app.use((req, _, next) => {
      try {
           throw new Error(responseMessage.NOT_FOUND('route'))
      } catch (error) {
