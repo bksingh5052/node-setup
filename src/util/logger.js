@@ -1,4 +1,5 @@
 import util from 'util'
+import 'winston-mongodb'
 import { createLogger, format, transports } from 'winston'
 import config from '../config/config.js'
 import { fileURLToPath } from 'url'
@@ -90,9 +91,21 @@ const FileTransport = () => {
      ]
 }
 
+const MongodbTransport = () => {
+     return [
+          new transports.MongoDB({
+               level: 'info',
+               db: config.DATABASE_URL,
+               metaKey: 'meta',
+               expireAfterSeconds: 3600 * 24 * 30,
+               collection: 'application-logs'
+          })
+     ]
+}
+
 export default createLogger({
      defaultMeta: {
           meta: {}
      },
-     transports: [...FileTransport(), ...consoleTransport()]
+     transports: [...MongodbTransport(), ...FileTransport(), ...consoleTransport()]
 })
