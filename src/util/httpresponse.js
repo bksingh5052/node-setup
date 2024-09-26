@@ -1,4 +1,5 @@
 import config from '../config/config.js'
+import logger from './logger.js'
 
 export default (req, res, responseStatusCode, responseMessage, data = null) => {
      const response = {
@@ -14,8 +15,7 @@ export default (req, res, responseStatusCode, responseMessage, data = null) => {
      }
 
      // Log
-     //  eslint-disable-next-line
-     console.info(`CONTROLLER_RESPONSE`, {
+     logger.info(`CONTROLLER_RESPONSE`, {
           meta: response
      })
 

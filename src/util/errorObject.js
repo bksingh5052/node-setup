@@ -1,5 +1,6 @@
 import responseMessage from '../constant/responseMessage.js'
 import config from '../config/config.js'
+import logger from './logger.js'
 
 export default (err, req, errorStatusCode = 500) => {
      const errorObj = {
@@ -16,8 +17,7 @@ export default (err, req, errorStatusCode = 500) => {
      }
 
      // Log
-     //  eslint-disable-next-line
-     console.error(`CONTROLLER_ERROR`, {
+     logger.error(`CONTROLLER_ERROR`, {
           meta: errorObj
      })
 
