@@ -4,16 +4,30 @@ import config from '../config/config.js'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 import path from 'path'
+import { blue, red, yellow, green, magenta } from 'colorette'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
+const colorizeLevel = (level) => {
+     switch (level) {
+          case 'ERROR':
+               return red(level)
+          case 'INFO':
+               return blue(level)
+          case 'WARN':
+               return yellow(level)
+          default:
+               return level
+     }
+}
+
 const consoleLogFormat = format.printf((info) => {
      const { level, message, timestamp, meta = {} } = info
 
-     const customLevel = level.toUpperCase()
+     const customLevel = colorizeLevel(level.toUpperCase())
 
-     const customTimestamp = timestamp
+     const customTimestamp = green(timestamp)
 
      const customMessage = message
 
@@ -23,7 +37,7 @@ const consoleLogFormat = format.printf((info) => {
           colors: true
      })
 
-     const customLog = `${customLevel} [${customTimestamp}] ${customMessage}\n${'META'} ${customMeta}\n`
+     const customLog = `${customLevel} [${customTimestamp}] ${customMessage}\n${magenta('META')} ${customMeta}\n`
 
      return customLog
 })
