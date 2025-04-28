@@ -1,5 +1,5 @@
-import responseMessage from '../constant/responseMessage.js'
-import config from '../config/config.js'
+import responseMessage from '../constants/responseMessage.js'
+import config from '../configs/config.js'
 import logger from './logger.js'
 
 export default (err, req, errorStatusCode = 500) => {

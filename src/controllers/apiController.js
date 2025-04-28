@@ -1,7 +1,7 @@
-import responseMessage from '../constant/responseMessage.js'
-import httpError from '../util/httpError.js'
-import httpresponse from '../util/httpresponse.js'
-import quicker from '../util/quicker.js'
+import responseMessage from '../constants/responseMessage.js'
+import httpError from '../utils/httpError.js'
+import httpresponse from '../utils/httpresponse.js'
+import quicker from '../utils/quicker.js'
 
 export default {
      self: (req, res, next) => {

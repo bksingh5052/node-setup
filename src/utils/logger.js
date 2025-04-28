@@ -1,7 +1,7 @@
 import util from 'util'
 import 'winston-mongodb'
 import { createLogger, format, transports } from 'winston'
-import config from '../config/config.js'
+import config from '../configs/config.js'
 import { blue, red, yellow, green, magenta } from 'colorette'
 
 const colorizeLevel = (level) => {

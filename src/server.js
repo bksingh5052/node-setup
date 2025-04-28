@@ -1,8 +1,8 @@
 import app from './app.js'
-import config from './config/config.js'
-import { initRateLimiter } from './config/rateLimiter.js'
+import config from './configs/config.js'
+import { initRateLimiter } from './configs/rateLimiter.js'
 import databaseService from './services/databaseService.js'
-import logger from './util/logger.js'
+import logger from './utils/logger.js'
 
 const server = app.listen(config.PORT)
 ;(async () => {

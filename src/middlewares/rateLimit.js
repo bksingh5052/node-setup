@@ -1,7 +1,7 @@
-import config from '../config/config.js'
-import { rateLimiterMongo } from '../config/rateLimiter.js'
-import httpError from '../util/httpError.js'
-import responseMessage from '../constant/responseMessage.js'
+import config from '../configs/config.js'
+import { rateLimiterMongo } from '../configs/rateLimiter.js'
+import httpError from '../utils/httpError.js'
+import responseMessage from '../constants/responseMessage.js'
 
 export default (req, _, next) => {
      if (config.ENV === 'development') {

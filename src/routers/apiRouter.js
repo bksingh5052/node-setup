@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import apiController from '../controller/apiController.js'
-import rateLimit from '../middleware/rateLimit.js'
+import apiController from '../controllers/apiController.js'
+import rateLimit from '../middlewares/rateLimit.js'
 
 const router = Router()
 

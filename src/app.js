@@ -3,13 +3,13 @@ import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 import path from 'path'
 
-import router from './router/apiRouter.js'
-import globalErrorHandler from './middleware/globalErrorHandler.js'
-import responseMessage from './constant/responseMessage.js'
-import httpError from './util/httpError.js'
+import router from './routers/apiRouter.js'
+import globalErrorHandler from './middlewares/globalErrorHandler.js'
+import responseMessage from './constants/responseMessage.js'
+import httpError from './utils/httpError.js'
 import helmet from 'helmet'
 import cors from 'cors'
-import config from './config/config.js'
+import config from './configs/config.js'
 
 const app = express()
 const __filename = fileURLToPath(import.meta.url)

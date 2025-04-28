@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import config from '../config/config.js'
+import config from '../configs/config.js'
 
 export default {
      connect: async () => {

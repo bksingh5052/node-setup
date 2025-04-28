@@ -1,4 +1,4 @@
-import config from '../config/config.js'
+import config from '../configs/config.js'
 import logger from './logger.js'
 
 export default (req, res, responseStatusCode, responseMessage, data = null) => {

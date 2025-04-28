@@ -1,5 +1,5 @@
 import os from 'os'
-import config from '../config/config.js'
+import config from '../configs/config.js'
 export default {
      getSystemHealth: () => {
           return {
