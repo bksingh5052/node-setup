@@ -1,6 +1,6 @@
 import responseMessage from '../constants/responseMessage.js'
 import httpError from '../utils/httpError.js'
-import httpresponse from '../utils/httpresponse.js'
+import httpresponse from '../utils/httpResponse.js'
 import quicker from '../utils/quicker.js'
 
 export default {

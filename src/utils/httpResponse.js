@@ -1,7 +1,7 @@
 import config from '../configs/config.js'
 import logger from './logger.js'
 
-export default (req, res, responseStatusCode, responseMessage, data = null) => {
+export default (req, res, responseStatusCode, responseMessage, resData = null) => {
      const response = {
           success: true,
           statusCode: responseStatusCode,
@@ -11,12 +11,15 @@ export default (req, res, responseStatusCode, responseMessage, data = null) => {
                url: req.originalUrl
           },
           message: responseMessage,
-          data: data
+          data: resData
      }
 
      // Log
+     // Log
+     // eslint-disable-next-line no-unused-vars
+     const { data, ...rest } = response
      logger.info(`CONTROLLER_RESPONSE`, {
-          meta: response
+          meta: rest
      })
 
      // Production Env check
