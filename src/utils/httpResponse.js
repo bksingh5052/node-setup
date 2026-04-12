@@ -19,7 +19,7 @@ export default (req, res, responseStatusCode, responseMessage, resData = null) =
      // eslint-disable-next-line no-unused-vars
      const { data, ...rest } = response
      logger.info(`CONTROLLER_RESPONSE`, {
-          meta: rest
+          meta: JSON.parse(JSON.stringify(rest))
      })
 
      // Production Env check

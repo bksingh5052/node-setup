@@ -18,7 +18,7 @@ export default (err, req, errorStatusCode = 500) => {
 
      // Log
      logger.error(`CONTROLLER_ERROR`, {
-          meta: errorObj
+          meta: JSON.parse(JSON.stringify(errorObj))
      })
 
      // Production Env check
