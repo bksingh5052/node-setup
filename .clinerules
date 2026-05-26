@@ -1,0 +1,25 @@
+# Antigravity & Claude Code Context Rules (js-setup)
+
+This file guides Antigravity and Claude Code agents.
+
+## Stack & Environment
+- **Runtime**: Node.js (v22.15.0 LTS)
+- **Framework**: Express.js (v5.x)
+- **Database**: MongoDB via Mongoose (v9.x)
+- **Module System**: ES Modules (ESM, `"type": "module"`). Use `import`/`export` and append `.js` to local imports.
+
+## Style & Rules
+- **No Console Logs**: Always use the Winston logger (`src/utils/logger.js`).
+- **Prettier Settings**:
+  - `tabWidth: 5`
+  - `semi: false`
+  - `singleQuote: true`
+  - `endOfLine: "crlf"`
+- **Errors & Responses**:
+  - Catch controller exceptions and call: `return httpError(next, err, req, 500)`
+  - To return a custom error, throw or pass a new Error:
+    ```javascript
+    return httpError(next, new Error("Error message"), req, 400)
+    ```
+  - Send success responses via `httpResponse(req, res, statusCode, message, data)`.
+  - Load environment variables via `dotenv-flow` and access them through `src/configs/config.js`.
